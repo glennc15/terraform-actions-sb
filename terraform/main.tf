@@ -1,12 +1,12 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
-      Version = "~>3.27"
+      source  = "hashicorp/aws"
+      version = "~> 5.38.0"
     }
   }
 
-  required_version = ">=0.14.9"
+  required_version = "~> 1.2"
 
    backend "s3" {
        bucket = "online-resume-backend-tf-state"
