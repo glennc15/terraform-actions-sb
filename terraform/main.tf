@@ -8,23 +8,23 @@ terraform {
 
   required_version = "~> 1.2"
 
-   backend "s3" {
-       bucket = "online-resume-backend-tf-state"
-       key    = "/terraform-actions-sb/terraform-state"
-       region = "east-us-1"
-   }
+  backend "s3" {
+    bucket = "online-resume-backend-tf-state"
+    key = "terraform-actions-sb/terraform-state"
+    region = "us-east-1"
+  }
 
 }
 
 provider "aws" {
-  region  = "east-us-1"
+  region = "us-east-1"
 }
 
 resource "aws_s3_bucket" "s3Bucket" {
-     bucket = "my-website-87654"
-     acl       = "public-read"
+  bucket = "my-website-87654"
+  acl    = "public-read"
 
-     policy  = <<EOF
+  policy = <<EOF
 {
      "id" : "MakePublic",
    "version" : "2012-10-17",
@@ -41,7 +41,7 @@ resource "aws_s3_bucket" "s3Bucket" {
   }
 EOF
 
-   website {
-       index_document = "index.html"
-   }
+  website {
+    index_document = "index.html"
+  }
 }
