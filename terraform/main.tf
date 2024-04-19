@@ -20,28 +20,5 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_s3_bucket" "s3Bucket" {
-  bucket = "my-website-87654"
-  acl    = "public-read"
-
-  policy = <<EOF
-{
-     "id" : "MakePublic",
-   "version" : "2012-10-17",
-   "statement" : [
-      {
-         "action" : [
-             "s3:GetObject"
-          ],
-         "effect" : "Allow",
-         "resource" : "arn:aws:s3:::my-website-87654/*",
-         "principal" : "*"
-      }
-    ]
-  }
-EOF
-
-  website {
-    index_document = "index.html"
-  }
+resource "aws_s3_bucket" "example-bucket" {
 }
